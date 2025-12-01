@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eid Essence - Silk Fashion Dress</title>
+  <style>
+    body {
+      font-family: 'Segoe UI' , sans-serif ;
+  margin: 4;
+ padding: 4;
+  background-color: #f1f5e0 ;
+      color: #333;
+    }
+
+    header {
+      background-color : #ebefef ;
+      color : white ;
+      padding : 1rem ;
+    }
+
+    nav {  
+      display : flex ;
+      justify-content  : space-between  ;
+      align-items  : center  ;
+    }
+
+    .logo {
+      font-size  : 1.5rem  ;
+      font-weight  : bold  ;
+    }
+
+    .nav-links {
+list-style: none  ;
+display: flex  ;
+gap: 1rem;
+margin: 0
+padding  : 0;}
+
+    .nav-links li {
+ cursor: pointer;
+}
+
+.search-bar {
+  padding: 0.5rem;
+  border-radiu: 4px ;
+  border: none;
+    }
+.breadcrumb {
+  margin: 1rem;
+   font-size: 0.9rem;
+  color: #777; }
+
+    .product-container {
+ display : flex ;
+ gap : 2rem ;
+ padding : 2rem ;
+ flex-wrap : wrap ;
+    }
+.product-image {
+  width : 300px ;
+  border-radius : 8px ;
+    }
+
+.product-details {
+  max-width : 400px ; 
+ }
+
+    .price {  font-size : 1.5rem ;
+ color : #c62828 ;
+    }
+
+    .addons {
+ margin: 1rem 0;
+    }
+
+    button {
+ background-color  : #00796b  ;
+      color  : white;
+padding  : 0.75rem 1.5rem  ;  
+      border: none;
+  border-radius: 4px;
+      cursor  : pointer  ;
+    }
+
+    footer {
+background-color : #eeeeee ;
+display: flex ;
+justify-content : space-around ;
+padding: 2rem ; 
+margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul {
+list-style: none;
+padding: 0;}
+
+    .footer-section ul li {
+ margin-bottom: 0.5rem;
+    }
+   .size-selector p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.size-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.size-box {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #00796b  ;
+  border-radius: 6px  ;
+  text-align  : center  ;
+  font-weight  : bold  ;
+  color: #00796b;
+  cursor  : pointer  ;
+  transition  : background-color 0.2s ease;
+}
+
+.size-box span {
+  display: inline-block  ;
+  line-height  : 46px  ;
+  width  : 100%  ;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.size-box input {
+  display: none;
+}
+
+.size-box input:checked + span {
+  background-color: #00796b;
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo" style="color:#00796b">Eid Essence</div>
+      <ul class="nav-links" style="color:#333">
+        <li>Home</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>Gifts</li>
+        <li>Sale</li>
+      </ul>
+      <input type="text" placeholder="Search..." class="search-bar" />
+    </nav>
+  </header>
+
+  <main>
+    <div class="breadcrumb">Home > Men > Emerald Embroidered Kurta</div>
+
+    <section class="product-container">
+      <img src="dress picture of page 6.jpg" alt="Emerald Embroidered Kurta" class="product-image" />
+      <div class="product-details">
+        <h1>Silk Fashion Dress</h1>
+        <p class="price">PKR 3,500</p>
+ <p class="description">Premium silk blend with hand-stitched gold embroidery.</p>
+
+       <div class="size-selector">
+ 
+  <div class="size-options">
+    <label class="size-box">
+      <input type="radio" name="size" value="S" />
+      <span>S</span>
+    </label>
+    <label class="size-box">
+      <input type="radio" name="size" value="M" />
+      <span>M</span>
+    </label>
+    <label class="size-box">
+      <input type="radio" name="size" value="L" />
+      <span>L</span>
+    </label>
+    <label class="size-box">
+      <input type="radio" name="size" value="XL" />
+      <span>XL</span>
+    </label>
+  </div>
+</div>
+
+        <div class="addons">
+          <label><input type="checkbox" id="envelope" /> Add Eid Envelope (+PKR 100)</label><br />
+          <label><input type="checkbox" id="chocolates" /> Add Chocolates (+PKR 500)</label>
+        </div>
+
+        <button onclick="addToCart()">ADD TO CART</button>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#066f39;color:#ebefef">
+    <div class="footer-section">
+      <h3>Eid Essence</h3>
+      <p>Tradition meets elegance.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Shop</h3>
+    
+       <a href="page6.html">Men’s Collection</a> 
+        <li><a href="page6.html">Women’s Collection</a></li>
+        <li><a href="page7..html">Gift Boxes</a></li>
+     
+    </div>
+    <div class="footer-section">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="page9.html">Shipping Info</a></li>
+        <li><a href="page10.html">Returns</a></li>
+        <li><a href="page10.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+function addToCart() {
+  const size = document.querySelector('input[name="size"]:checked')?.value || "Not selected";
+  const envelope = document.getElementById('envelope').checked;
+  const chocolates = document.getElementById('chocolates').checked;
+
+  let total = 3500;
+  if (envelope) total += 100;
+  if (chocolates) total += 500;
+
+  alert(`Added to cart:\nSize: ${size}\nEnvelope: ${envelope ? 'Yes' : 'No'}\nChocolates: ${chocolates ? 'Yes' : 'No'}\nTotal: PKR ${total}`);
+}
+  </script>
+</body>
+</html>

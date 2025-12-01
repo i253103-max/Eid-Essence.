@@ -1,0 +1,422 @@
+<!DOCTYPE html >
+<!-- means  document is HTML -->
+
+<html lang = "en" >
+<!-- this word set default language to english-->
+
+<head >
+  <meta charset="UTF-8" />
+ <meta name ="viewport" content=  "width=device-width, initial-scale=1.0"/> <!-- ensure correct applying to mobile devices -->
+ <title >Checkout - Eid Essence</title>
+  <!-- page title---shows in the browser tab --> <!-- this is the library of font on google -->
+ <link   href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+ <style>
+/*thsi helps reuse colors*/
+ :root {
+--green : #2e7d32;
+ --dark-green : #1b5e20; --gold : #d4af37;
+ --beige : #f5f0e6;
+--light-gray : #f9f9f9;
+--border : #ddd; 
+  }
+
+    /* default margin, padding and set box-size for easier sizing */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+        /*  poppins font throughout the  body */
+      font-family : 'Poppins', sans-serif;
+        /* light beige background color setting  */
+      background-color : var(--beige);
+       /* Dark gray text for readability */
+ color: #333 ;
+       /*for space to the height of words */
+      line-height : 1.6  ;  }
+
+    /*styles of the headers  */
+    header  {
+     /* White background for header */
+      background : white ;
+/* Padding inside the headers */
+      padding : 18px 40px ;
+      /* this help us to keeps header fixed at atop while scrolling */
+ position:  sticky;
+      top: 0;
+      /* this ensures header stay on top of other element */
+ z-index:  100;
+      
+   
+             }
+
+    /* for the navigations bar container */
+    nav 
+    {
+      display : flex;
+   
+      justify-content: space-between;
+      /* for the spaces between logo, nav links and icons at the top of screen page */
+      align-items:  center;
+    
+        /* this is to limit max width for large screens so the web page donot look destroyed */
+      max-width: 1400px;
+    
+      margin: 0 auto ;
+    
+       }
+
+    /* logo styling font and color*/
+    .logo {
+      font-family : 'Playfair Display' , serif;
+     
+      font-size : 22px;
+      color: var(--green);
+      font-weight:  700;/*for bolding font */
+}
+
+    .nav-links a {
+  margin: 0 4px ;
+      /*  space between links */
+      text-decoration : none;
+  color:#333;
+     
+      font-weight: 500;
+      
+    }
+
+    /* this is the effect for limks so that  appears as links at the corser */
+    .nav-links a:hover{ 
+      color: var(--green) ;
+      /* green coloring  */
+    }
+
+    /* style for the search icon*/
+    .search-bar{
+padding: 10px 15px;
+border:  1px solid #ddd;
+border-radius  : 1px;
+ width : 2px;
+    font-size : 1px ;
+    }
+ /* home,male , Female and Other  */
+    .icons span 
+    { 
+      font-size  : 22px;
+      margin-left  : 1px;
+      cursor:  pointer;
+ }
+
+    /*  content container */
+    .container 
+    {
+      max-width: 1400px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+     
+      grid-template-columns: 1fr 420px;
+          /*for the  space between columns */
+      gap: 60px;
+ 
+    }
+
+    /* main heading styling meaning for the checkout  */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--green);
+      margin-bottom: 40px;
+    }
+
+    /*  form completion container */
+    .shipping-form 
+{
+      background : white;
+      padding: 40px ;
+ border-radius : 16px;
+      border: 3px  solid  var(--green) ;
+      box-shadow : 0 10px 30px rgba( 0, 0, 0, 0.1); }
+    .form-group {
+      margin-bottom : 25px ;
+}
+    label 
+{
+      display : block ;
+      margin-bottom :8px;
+      font-weight:500;
+      color :   #444;
+      }
+ /* styling for the data collection*/
+    input[type= "text" ] ,
+    input[type="email"] ,
+    input[type="tel"]{
+ width: 100% ;
+padding:   14px  16px;
+border  : 1.5px solid #ccc;
+border-radius : 8px ;
+      font-size : 15px ;
+      transition   : border 0.3s  ;
+    }
+ /* Input focus style */
+    input:focus {
+      outline: none;
+            /*beautifull highlight border when user click inputs   */
+    border-color : var(--green);
+}  .row {
+      display  :grid ;
+      grid-template-columns : 1fr 1fr;
+      gap : 20px ;
+    }
+/* sidebar */
+    .payment-summary {
+      background  : white;
+padding : 35px ;
+border-radius : 16px ;
+box-shadow : 0 10px 30px rgba(0,0,0,0.1);
+ height:fit-content ;
+      position :sticky  ;
+      top:120px ;
+      /* the sidebar visible and  kept as you scroll the screem */
+ }
+
+    /* payement method...- */
+    .payment-summary h3
+{
+ font-size :24px;
+color : var(--green) ;
+margin-bottom :  25px;
+      padding-bottom  : 12px;
+border-bottom : 2px solid #eee; /* horizantel linee */}
+
+    /*   again we will drqw container ....payement */ .payment-options {
+ margin-bottom : 40px ;
+}
+    .payment-option {
+      display : flex;
+align-items : center ;
+      gap : 12px ;margin-bottom : 18px;
+font-size : 16px;
+      cursor: pointer;
+    }
+
+    /* to make the circles arond the mode of payement */
+.radio {
+      width: 22px;
+height : 22px ;
+ border : 2px  solid #999;
+border-radius : 50%  ;
+position :relative ;
+    transition: all 0.3s;}
+
+    /* color ...greens*/
+ .radio.checked  { border-color:  var(--green) ;
+ }
+
+    /*for the circled */
+    .radio.checked::after{
+      content : '' ;
+      width : 12px;
+      height : 12px;
+ background : var(--green);
+border-radius : 50%;
+    position : absolute;
+top: 50% ;
+left: 50%  ;
+ transform: translate(-50%, -50%);}
+
+    /*now for placinngs of orders button   */
+.place-order-btn {
+width:100%;
+padding:18px;
+      background:var(--gold);
+    color: #333;
+font-weight : 700;
+      font-size   : 19px;
+ border: none;
+      border-radius: 10px;
+    cursor: pointer;
+      transition: 0.3s;
+    box-shadow   : 0 4px 15px rgba(212,175,55,0.3);}
+
+    /* effect upon order button  */
+.place-order-btn :hover{
+background : #e0c160;
+      transform : translateY(-2px);}
+
+    /*styling base*/
+footer{
+background : var(--dark-green);
+    color : white;
+       padding : 70px 40px 30px ;
+margin-top : 140px;}
+.footer-grid {
+max-width: 1400px;
+margin: 0 auto;
+    display  :grid;
+grid-template-columns : repeat(3, 1fr) ;
+ gap : 60px ; }
+.footer-col h4 { 
+font-size :19px ; 
+      margin-bottom : 20px ; 
+}
+
+    /* links ....footers*/
+    .footer-col a { 
+color: #ccc; 
+text-decoration : none ; 
+    display : block; 
+      margin : 10px 0 ;}
+    /*effect */
+ .footer-col a:hover{ 
+color : white ; }
+ /* for an adjustments for smaller screens */
+    @media (max-width: 992px) {
+      .container { 
+grid-template-columns : 1fr;}
+.payment-summary { 
+        position: static; 
+        /* for smaller sccreen*/
+      }
+    }
+    @media (max-width: 600px) {
+    .row { 
+grid-template-columns: 1fr; 
+      }
+      h1 { 
+        font-size: 36px; 
+  /* making the  heading size small for small devices */
+ }}
+  </style>
+</head>
+<body>
+  <!-- head ....with navigation -->
+  <header>
+<nav>
+      <div class="logo">Eid Essence</div> <!-- my website logo -->
+
+      <div class="nav-links">
+ <!-- navi. menu links -->
+    <a href="#">Home</a>
+<a href="#">Men</a>
+     <a href="#">Women</a>
+<a href="#">Gifts</a>
+<a href="#">Sale</a>
+</div>
+<div class="icons">
+        <!-- search bar input,, -->
+ <input type="text" class="search-bar" placeholder="Search for gifts...">
+<!-- related icons for customere -->
+<span>Profile</span>
+<span>Wishlist</span>
+        <span>Cart</span>
+</div>
+</nav>
+</header>
+  <div class="container">
+
+<!-- left col Shippmennt info form -->
+    <div>
+<h1>Checkout</h1>
+<div class="shipping-form">
+ <div class="form-group">
+    <label>Full Name</label>
+<input type="text" placeholder="Ahmad Khan" required />
+ </div>
+<div class="form-group">
+    <label>Phone Number</label>
+<input type="tel" placeholder="+92 300 1234567" required />
+    </div>
+<div class="form-group">
+<label>Street Address</label>
+<input type="text" placeholder="House #123, Street 45, DHA Phase 6" required />
+</div>
+<div class="row">
+          <!-- side_by_side... input for city and Area -->
+<div class="form-group">
+  <label>City</label>
+      <input type="text" placeholder="Lahore" required />
+</div>
+    <div class="form-group">
+<label>Area / Locality (Optional)</label>
+<input type="text" placeholder="Gulberg III" />
+</div>
+</div>
+    </div>
+</div>
+
+        <!-- right col... payment options and order buttons -->
+    <div class="payment-summary">
+            <h3>Payment Method</h3>
+
+      <div class="payment-options"> <!-- Credit/Debit card option -->
+    <label class="payment-option">
+ <div class="radio checked"></div>
+     <span>Credit / Debit Card</span>
+             </label>
+
+<!--Cash on and delivery option -->
+<label class="payment-option">
+     <div class="radio"></div>
+ <span>Cash on Delivery</span>
+    </label>
+             </div>
+
+      <!-- button to finaliz order -->
+<button class="place-order-btn">PLACE ORDER</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+<div class="footer-col">
+                      <h4>Eid Essence</h4>
+                     <p>Tradition meets elegance.</p>
+       </div>
+
+          <div class="footer-col">
+ <h4>Shop</h4>
+ <a href="page8.html">Men's Collection</a>
+     <a href="page6.html">Women's Collection</a>
+     <a href="page7..html">Gift Boxes</a>
+ </div>
+
+<div class="footer-col">
+        <h4>Help</h4>
+<a href="page9.html">Shipping Info</a>
+        <a href="page10.html">Returns</a>
+            <a href="page10.html">Contact Us</a>
+ </div>
+        </div>
+ </footer>
+<script>
+    document.querySelectorAll('.payment-option').forEach(option => {
+      option.addEventListener('click', function() {document.querySelectorAll('.radio').forEach(r => r.classList.remove('checked'));
+        
+
+
+        this.querySelector('.radio').classList.add('checked');
+      });
+    });
+
+    // form valid.... and order confirm... on button clicking 
+    document.querySelector('.place-order-btn').addEventListener('click', function(e) {
+ const required = document.querySelectorAll('input[required]');
+      let valid = true;
+// to check if required fields are filled
+    required.forEach(input => {
+if (!input.value.trim()) {
+  input.style.borderColor = 'red';
+  valid = false;
+} else {
+    input.style.borderColor = '#ccc';
+}});
+if (!valid) {
+        // for prevent form submission... if validation fails
+e.preventDefault();
+alert('Please fill in all required fields.');} else
+ {
+ // show success message on.... valid form submission
+alert ('Order placed successfully! Eid Mubarak! 🌙✨');
+} }   );
+  </script>
+
+</body>
+</html>

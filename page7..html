@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eid Essence - Build Your Own Eid Box</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #2e7d32;
+      --gold: #d4af37;
+      --beige: #f5f0e6;
+      --dark-green: #1b5e20;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--beige);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: white ;
+      padding :  15px 40px ; 
+      position : sticky ;
+      top : 0  ;
+      z-index : 100 ;
+    }
+    nav {
+display :  flex ;
+ justify-content : space-between ;
+      align-items : center ;
+ max-width : 1400px ;
+margin : 0 auto;
+    }
+ .logo { font-family : 'Playfair Display', serif; font-size: 26px; color: var(--green); }
+    .nav-links a {
+ margin : 0 20px ;
+      text-decoration  : none  ;
+ color: #333  ;
+   font-weight  : 500  ;
+    }
+    .nav-links a:hover { color  : var(--green)  ; }
+    .cart { font-size: 24px; cursor  : pointer  ; }
+
+    .container {
+      max-width  : 1400px  ;
+      margin  : 40px auto  ;
+      padding : 0 20px; 
+      display : grid ;
+      grid-template-columns : 1fr 350px;
+      gap: 50px ;
+    }
+    h1 {
+      font-family : 'Playfair Display', serif;
+      font-size : 42px ;
+      color: var(--green) ;
+      margin-bottom : 10px ;
+    }
+    .subtitle { color : #666 ; margin-bottom: 40px ; }
+
+    /* Options */
+    .step { margin-bottom : 50px ; }
+    .step h3 {
+      font-size: 22px ;
+      margin-bottom : 20px ;
+      color : var(--dark-green) ;
+    }
+    .options {
+      display : flex ;
+      gap: 20px ;
+      flex-wrap : wrap ;
+    }
+    .option {
+      text-align : center ;
+      cursor : pointer ;
+      transition: all 0.3s;
+      padding: 15px;
+      border-radius: 10px;
+      border: 3px solid transparent;
+    }
+    .option.selected {
+      border-color: var(--green);
+      background: rgba(46,125,50,0.05);
+    }
+    .color-swatch {
+      width: 140px;
+      height: 140px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .box-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .price { font-weight: 600; color: var(--green); margin-top: 8px; }
+
+    /* Summary Sidebar */
+    .summary {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+    .summary h3 {
+      color: var(--green);
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    .total {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 25px 0;
+      text-align: right;
+    }
+    .gift-message {
+      width: 100%;
+      padding: 12px;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    .add-to-cart {
+      width: 100%;
+      padding: 16px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .add-to-cart:hover { background: #1b5e20; }
+
+    footer {
+      background: var(--dark-green);
+      color: white;
+      padding: 50px 40px 20px;
+      margin-top: 100px;
+    }
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .footer-col h4 { font-size: 18px; margin-bottom: 15px; }
+    .footer-col a { color: #ccc; text-decoration: none; display: block; margin: 8px 0; }
+    .footer-col a:hover { color: white; }
+
+    @media (max-width: 992px) {
+      .container { grid-template-columns: 1fr; }
+      .summary { position: static; }
+    }
+    @media (max-width: 600px) {
+      .options { justify-content: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">Eid Essence</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Gift Boxes</a>
+      </div>
+      <div class="cart">🛒</div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="builder">
+      <h1>Build Your Own Eid Box</h1>
+      <p class="subtitle">Curate the perfect gift in 3 simple steps.</p>
+
+      <!-- Step 1: Box Colour -->
+      <div class="step">
+        <h3>1. Choose Your Box Colour</h3>
+        <div class="options" id="colorOptions">
+          <div class="option selected" data-price="500" data-name="Emerald Luxury">
+            <div class="color-swatch" style="background: linear-gradient(to bottom, #1b5e20, #2e7d32);"></div>
+            <p>Emerald Luxury</p>
+          </div>
+          <div class="option" data-price="500" data-name="Royal Gold">
+            <div class="color-swatch" style="background: linear-gradient(to bottom, #f9e076, #d4af37);"></div>
+            <p>Royal Gold</p>
+          </div>
+          <div class="option" data-price="500" data-name="Deep Maroon">
+            <div class="color-swatch" style="background: linear-gradient(to bottom, #8B0000, #A52A2A);"></div>
+            <p>Deep Maroon</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Box Style -->
+      <div class="step">
+        <h3>2. Choose Your Box Style</h3>
+        <div class="options" id="styleOptions">
+          <div class="option selected" data-price="1500" data-name="Oud Perfume">
+            <img src="download (7).jpg"box-img">
+            <p>Navy Luxury Box</p>
+            <div class="price">+ PKR 1,500</div>
+          </div>
+          <div class="option" data-price="800" data-name="Pink Ribbon">
+            <img src="download (3).jpg"box-img">
+            <p>Pink Ribbon Box</p>
+            <div class="price">+ PKR 800</div>
+          </div>
+          <div class="option" data-price="600" data-name="Kraft Box">
+            <img src="download (9).jpg" alt="Kraft Box" class="box-img">
+            <p>Kraft Natural Box</p>
+            <div class="price">+ PKR 600</div>
+          </div>
+          <div class="option" data-price="600" data-name="Heart Box">
+            <img src="download (8).jpg"box-img">
+            <p>Heart Gift Box</p>
+            <div class="price">+ PKR 600</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Sidebar -->
+    <div class="summary">
+      <h3>Your Box Summary</h3>
+      <div id="summaryItems">
+        <div class="summary-item">
+          <span>1. Emerald Luxury Box</span>
+          <span>PKR 500</span>
+        </div>
+        <div class="summary-item">
+          <span>2. Oud Perfume</span>
+          <span>PKR 1,500</span>
+        </div>
+        <div class="summary-item">
+          <span>3. Add a Gift Message (Free)</span>
+          <span>Free</span>
+        </div>
+      </div>
+
+      <textarea class="gift-message" placeholder="Type your Eid greeting here... (optional)"></textarea>
+
+      <div class="total">Total Price: <span id="totalPrice">PKR 2,000</span></div>
+
+      <button class="add-to-cart">ADD BOX TO CART</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Eid Essence</h4>
+        <p>Tradition meets elegance.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="page6.html">Women's Collection</a>
+        <a href="page8.html">Men's Collection</a>
+        <a href="page7..html">Gift Boxes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="page9.html">Shipping Info</a>
+        <a href="page10.html">Returns</a>
+        <a href="page10.html">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Select all option groups
+    document.querySelectorAll('#colorOptions, #styleOptions').forEach(group => {
+      group.addEventListener('click', (e) => {
+        const option = e.target.closest('.option');
+        if (!option) return;
+
+        // Remove selected from siblings
+        group.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+        // Add selected to clicked
+        option.classList.add('selected');
+
+        updateSummary();
+      });
+    });
+
+    function updateSummary() {
+      let total = 0;
+      let items = [];
+
+      // Color
+      const selectedColor = document.querySelector('#colorOptions .selected');
+      const colorName = selectedColor.dataset.name;
+      const colorPrice = parseInt(selectedColor.dataset.price);
+      total += colorPrice;
+      items.push(`1. ${colorName} Box`);
+
+      // Style
+      const selectedStyle = document.querySelector('#styleOptions .selected');
+      const styleName = selectedStyle.querySelector('p').textContent;
+      const stylePrice = parseInt(selectedStyle.dataset.price);
+      total += stylePrice;
+      items.push(`2. ${styleName}`);
+
+      // Always show gift message as free
+      items.push("3. Add a Gift Message (Free)");
+
+      // Update summary HTML
+      document.getElementById('summaryItems').innerHTML = items.map((item, i) => {
+        const prices = [colorPrice, stylePrice, 0];
+        return `<div class="summary-item">
+                  <span>${item}</span>
+                  <span>${i < 2 ? 'PKR ' + prices[i].toLocaleString() : 'Free'}</span>
+                </div>`;
+      }).join('');
+
+      document.getElementById('totalPrice').textContent = 'PKR ' + total.toLocaleString();
+    }
+
+    // Initial update
+    updateSummary();
+  </script>
+</body>
+</html>

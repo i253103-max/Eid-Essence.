@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - Eid Essence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #2e7d32;
+      --dark-green: #1b5e20;
+      --beige: #f5f0e6;
+      --light-gray: #f8f8f8;
+      --border: #e0e0e0;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--beige);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /*for the header... */
+    header {
+      background: rgb(244, 242, 242)  ;
+      padding: 18px 40px  ;
+     
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      display: flex   ;
+ justify-content:   space-between   ;align-items: center   ;
+ max-width:   1400px  ;
+      margin:  0 auto ;
+ }
+ .l {
+ font-family:  'Playfair Display', serif   ;
+ font-size:  28px   ;
+   color:   var(--green)  ;
+ font-weight: 700 ;
+    }
+    .k a {
+  margin: 0 18px ;
+      text-decoration : none ;
+ color: #333;
+font-weight: 500;
+ transition: color 0.3s;
+ }
+.k a:hover { color: var(--green); }
+ .s {
+ padding: 10px 15px ;
+  border : 1px solid #ddd ;
+  border-radius : 30px  ;
+ width:  220px  ;
+      font-size : 14px ;
+ }
+    .i { display: flex; gap: 20px; align-items: center; }
+    .i span { font-size: 22px; cursor: pointer; }
+
+    /* main content.... */
+    .c {
+ max-width: 1400px  ;
+      margin: 50px auto ;
+  padding : 0 20px ;
+display : grid ;
+grid-template-columns: 1fr 380px ;
+      gap : 50px ;
+ }
+    h1 {
+      font-family: 'Playfair Display', serif ;
+  font-size : 40px ;
+color : var(--green) ;
+ margin-bottom : 30px ; }
+
+    /*cart..tables */
+    .cart-table {
+ background: white;
+border-radius : 12px ;
+overflow : hidden ;
+
+    }
+.table-header {
+      background : #ececec ;
+ padding : 18px 25px ;
+ display : grid ;
+ grid-template-columns: 2fr 1fr 1fr 1fr ;
+      font-weight: 600 ;
+  color: #555;
+      text-transform: uppercase ;
+      font-size: 13px ;
+      letter-spacing : 0.5px ;
+    }
+    .c-item {
+ display: grid; grid-template-columns: 2fr 1fr 1fr 1fr ;
+      padding: 25px;
+      border-bottom : 1px solid var(--border) ;
+      align-items : center ;
+    }
+.p-i {
+      display: flex ;
+ align-items : center ;
+      gap : 20px ;
+ }
+.p-i img {
+      width : 80px ;
+      height : 100px;
+      object-fit  : cover ;
+      border-radius : 8px ;
+    }
+    .p-i div {font-weight  : 500 ;}
+    .p, .total-p { font-weight  : 600 ; color : var(--green); }
+ 
+    /* quantity... */
+    .quantity {
+ display : flex ;
+      align-items : center ;
+      justify-content  : center   ;
+      gap: 12px;
+      border: 1px solid #ddd  ;
+      border-radius: 8px  ;
+      width  : fit-content  ;
+      margin  : 0 auto;
+      padding  : 5px  ;
+    }
+    .quantity button {
+  width : 32px ;
+      height : 32px ;
+ border : none ;
+      background: transparent ;
+      font-size: 18px ;
+ cursor : pointer ;
+      color : #777  ;
+    }
+    .quantity input {
+      width : 40px ;
+ text-align : center ;
+      border : none ;
+      font-weight : 600 ;
+    }
+
+    /* order...summary */
+    .O_S {
+      background: white ;
+ padding: 30px ;
+      border-radius: 12px ;
+ 
+  height: fit-content;
+      position: sticky;
+      top: 110px;
+    }
+    .O_S h3 {
+      font-size : 24px ;
+      color : var(--green)  ;
+ margin-bottom : 25px ;
+      padding-bottom : 10px ;
+      border-bottom : 2px solid #eee ;
+    }
+    .S-R {
+      display : flex ;
+  justify-content : space-between;
+ margin-bottom: 15px;
+      font-size: 16px;
+    }
+    .S-R.total {
+ font-size: 20px;
+      font-weight: 700;
+ color: var(--green);
+      padding-top: 15px;
+ border-top: 2px solid #eee;
+      margin-top: 20px;
+    }
+    .C_b {
+      width : 100% ;
+   padding : 16px;
+      background : var(--green);
+  color: white ;
+      border : none ;
+      border-radius : 8px ;
+      font-size: 18px ;
+      font-weight: 600 ;
+      cursor : pointer;
+      margin-top: 25px;
+      transition : 0.3s ;
+    }
+    .C_b:hover {
+      background : var(--dark-green);
+    }
+
+    /*the foter */
+    footer {
+  background : var(--dark-green);
+      color : white ;
+      padding : 60px 40px 30px;
+      margin-top : 120px ;
+    }
+    .footer-grid {
+      max-width: 1400px;
+      margin : 0 auto ;
+      display: grid;
+      grid-template-columns : repeat(3, 1fr);
+      gap : 50px;
+    }
+ .footer-col h4 { font-size: 18px; margin-bottom: 18px ; }
+ .footer-col a { color: #ccc; text-decoration: none; display: block; margin: 10px 0; }
+  .footer-col a:hover { color: white; }
+
+  /* responsive... */
+ @media (max-width: 992px) {
+    .c { grid-template-columns : 1fr ; }
+ .O_S { position : static ; }
+    }
+  @media (max-width : 600px)  {
+  .table-header, .c-item { grid-template-columns : 1fr ; gap : 15px; text-align: center; }
+      .p-i { justify-content : center; }
+ .quantity { margin: 10px auto; }
+    
+  </style>
+</head>
+<body>
+
+  <!-- header... -->
+  <header>
+    <nav>
+      <div class="l">Eid Essence</div>
+      <div class="k">
+ <a href="#">Home</a>
+  <a href="#">Men</a>
+ <a href="#">Women</a>
+ <a href="#">Gifts</a>
+<a href="#">Sale</a>
+   </div>
+  <div class="i">
+   <input type="text" class="s" placeholder="Search for gifts...">
+ <span>👤</span>
+   <span>🛍️</span>
+        <span>🛒</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- main Content -->
+  <div class="c">
+    <div>
+      <h1>Your Cart 🛒</h1>
+
+      <div class="cart-table">
+   <div class="table-header">
+          <div>PRODUCT</div> 
+  <div>p</div>
+          <div>QUANTITY</div>
+    <div>TOTAL</div>
+        </div>
+
+        <!-- cart Item 1 -->
+        <div class="c-item">
+          <div class="p-i">
+            <img src="download12.jpg" alt    ="Kurta">
+            <div>
+       <strong>Kurta (L)</strong><br>
+ <small>Men's Premium Cotton - Off White</small>
+  </div>
+          </div>
+     <div class="p">3,500</div>
+  <div class="quantity">
+ <button onclick="updateQuantity(this, -1)">–</button>
+   <input type="text" value="1" readonly>
+  <button onclick="updateQuantity(this, 1)">+</button>
+  </div>
+      <div class="total-p">PKR 3,500</div>
+  </div>
+
+ 
+   </div>
+ </div>
+
+    <!-- Order Summary -->
+    <div class="O_S">
+      <h3>Order Summary</h3>
+      <div class="S-R">
+        <span>Subtotal</span>
+        <span>PKR 3,500</span>
+      </div>
+      <div class="S-R">
+        <span>Shipping</span>
+        <span>PKR 200</span>
+      </div>
+      <div class="S-R total">
+        <span>Total</span>
+        <span>PKR 3,700</span>
+      </div>
+      <a href="page9.html">PROCEED TO CHECKOUT</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Eid Essence</h4>
+        <p>Tradition meets elegance.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="page8.html">Men's Collection</a>
+        <a href="page6.html">Women's Collection</a>
+        <a href="page7..html">Gift Boxes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="page9.html">Shipping Info</a>
+        <a href="page10.html">Returns</a>
+        <a href="page10.html">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update quantity and recalculate total
+    function updateQuantity(btn, change) {
+      const input = btn.parentElement.querySelector('input');
+      let qty = parseInt(input.value);
+      qty = Math.max(1, qty + change); // minimum 1
+      input.value = qty;
+
+      // Update total p for this row
+      const row = btn.closest('.c-item');
+      const p = parseInt(row.querySelector('.p').textContent.replace(/[^0-9]/g, ''));
+      const totalCell = row.querySelector('.total-p');
+      totalCell.textContent = 'PKR ' + (p * qty).toLocaleString();
+
+      // Update order summary
+      updateOrderSummary();
+    }
+
+    function updateOrderSummary()  {
+      let subtotal  = 0 ;
+      document.querySelectorAll('.c-item').forEach(item => {
+  const totalText = item.querySelector('.total-p').textContent;
+  subtotal += parseInt(totalText.replace(/[^0-9]/g, ''));
+ });
+const shipping  = 200 ;  const total  = subtotal  + shipping ;
+
+ document.querySelectorAll('.S-R')[0].children[1].textContent = 'PKR ' + subtotal.toLocaleString();
+      document.querySelectorAll('.S-R.total')[0].children[1].textContent = 'PKR ' + total.toLocaleString();
+    }
+
+    // Run on load in case items are added dynamically
+    window.addEventListener('load', updateOrderSummary) ;
+  </script>
+</body>
+</html>
